@@ -1,0 +1,29 @@
+{
+  "title": "System Messenger",
+  "description": "Goose will inject important status or system messages into the session and speak them aloud.",
+  "instructions": "Use this recipe to broadcast system updates, warnings, or feedback during a voice session.",
+  "initial_prompt": "Whenever there’s an important system update, call the `send_text_to_session` tool, then speak the message.",
+  "activities": [
+    {
+      "tool": "listen_for_voice",
+      "arguments": {
+        "chatId": "{{sessionId}}"
+      }
+    },
+    {
+      "tool": "send_text_to_session",
+      "arguments": {
+        "chatId": "{{sessionId}}",
+        "content": "{{systemMessage}}"
+      }
+    },
+    {
+      "tool": "speak_message",
+      "arguments": {
+        "chatId": "{{sessionId}}",
+        "content": "{{systemMessage}}"
+      }
+    }
+  ],
+  "recipe_name": "system_broadcaster"
+}
