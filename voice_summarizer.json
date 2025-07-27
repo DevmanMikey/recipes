@@ -1,0 +1,28 @@
+{
+  "title": "Voice Chat Summarizer",
+  "description": "Goose listens to your conversation and can summarize everything that’s been said at any point.",
+  "instructions": "Start this recipe, have a voice conversation, then say “Summarize the chat.” Goose will speak a summary aloud.",
+  "initial_prompt": "Listen to the ongoing chat. If the user says “summarize” or requests a recap, call the summary tool and speak the result.",
+  "activities": [
+    {
+      "tool": "listen_for_voice",
+      "arguments": {
+        "chatId": "{{sessionId}}"
+      }
+    },
+    {
+      "tool": "summarize_session",
+      "arguments": {
+        "chatId": "{{sessionId}}"
+      }
+    },
+    {
+      "tool": "speak_message",
+      "arguments": {
+        "chatId": "{{sessionId}}",
+        "content": "{{lastSummary}}"
+      }
+    }
+  ],
+  "recipe_name": "voice_summarizer"
+}
