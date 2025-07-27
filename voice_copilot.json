@@ -1,0 +1,15 @@
+{
+  "title": "Live Voice Chat Copilot",
+  "description": "Enables Goose to join a live voice conversation and respond to anything the user says, speaking replies aloud in real time.",
+  "instructions": "Start this recipe to activate Goose’s live voice mode. Say anything—you’ll get a spoken reply! To end, just say “Stop” or end the session in the app.",
+  "initial_prompt": "You are a conversational AI assistant in a live voice chat. Listen to everything the user says and respond conversationally, speaking each answer aloud. If the user asks to end, summarize the session and say goodbye.",
+  "activities": [
+    {
+      "tool": "listen_for_voice",
+      "arguments": {
+        "chatId": "{{sessionId}}"
+      }
+    }
+  ],
+  "recipe_name": "voice_copilot"
+}
